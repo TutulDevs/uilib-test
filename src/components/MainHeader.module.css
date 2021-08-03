@@ -1,0 +1,10 @@
+.nav {
+  width: 100%;
+  background: teal;
+  padding: 0.5rem;
+}
+
+.nav a {
+  color: white;
+  padding: 0.25rem 1rem;
+}

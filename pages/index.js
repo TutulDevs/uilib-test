@@ -11,7 +11,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
+      <>
         <h1 className={styles.title}>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>
@@ -19,7 +19,7 @@ export default function Home() {
         <p className={styles.description}>
           Go to <Link href='/about'>About Page</Link>
         </p>
-      </main>
+      </>
     </div>
   );
 }
