@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# UI Lib Test Project
+
+Clone [this site](https://www.figma.com/file/93eBfz3E00naPkS3174uxP/Test-Project-for-React-developers?node-id=2%3A235)
 
 ## Getting Started
 
