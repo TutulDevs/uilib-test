@@ -38,6 +38,12 @@ const theme = createTheme({
   typography: {
     fontFamily: ["Nunito Sans", "sans-serif"].join(", "),
   },
+  mixins: {
+    toolbar: {
+      minHeight: 80,
+      marginBottom: 30,
+    },
+  },
 });
 
 export default theme;

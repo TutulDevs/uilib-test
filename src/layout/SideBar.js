@@ -11,6 +11,7 @@ import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import { drawerWidth } from "./Layout";
 import { makeStyles } from "@material-ui/styles";
+import { styled } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -22,7 +23,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.purple.main,
     color: "white",
     textAlign: "center",
+    padding: `0 ${theme.spacing(1.5)}`,
   },
+}));
+
+const LogoTextStyle = styled(Toolbar)(({ theme }) => ({
+  display: "grid",
+  placeItems: "center",
 }));
 
 const SideBar = () => {
@@ -30,11 +37,13 @@ const SideBar = () => {
 
   return (
     <Drawer
-      className={classes.drawer}
+      classqName={classes.drawer}
       variant='permanent'
       anchor='left'
       classes={{ paper: classes.drawerPaper }}>
-      <Typography variant='h4'>Gull</Typography>
+      <LogoTextStyle>
+        <Typography variant='h5'>Gull</Typography>
+      </LogoTextStyle>
 
       <List>
         {["A", "B", "C", "D", "E", "F", "G"].map((text, index) => (

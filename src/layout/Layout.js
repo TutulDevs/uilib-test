@@ -1,4 +1,4 @@
-import { styled } from "@material-ui/core";
+import { styled, Toolbar } from "@material-ui/core";
 import MainHeader from "./MainHeader";
 import SideBar from "./SideBar";
 
@@ -7,7 +7,7 @@ const WrapperStyle = styled("div")({
 });
 
 const MainStyle = styled("main")(({ theme }) => ({
-  marginTop: theme.spacing(8),
+  marginLeft: drawerWidth,
   padding: theme.spacing(1.25),
 }));
 
@@ -18,7 +18,10 @@ const Layout = ({ children }) => {
 
       <SideBar />
 
-      <MainStyle>{children}</MainStyle>
+      <MainStyle>
+        <Toolbar />
+        {children}
+      </MainStyle>
     </WrapperStyle>
   );
 };

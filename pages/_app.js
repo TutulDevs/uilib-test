@@ -3,8 +3,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../src/theme";
-import Layout from "../src/components/layout/Layout";
-import "../styles/globals.css";
+import Layout from "../src/layout/Layout";
 
 const MyApp = (props) => {
   const { Component, pageProps } = props;
