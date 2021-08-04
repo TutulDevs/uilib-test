@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LogoTextStyle = styled(Toolbar)(({ theme }) => ({
+const LogoTextStyle = styled(Typography)(({ theme }) => ({
+  minHeight: theme.spacing(8),
   display: "grid",
   placeItems: "center",
 }));
@@ -41,9 +42,9 @@ const SideBar = () => {
       variant='permanent'
       anchor='left'
       classes={{ paper: classes.drawerPaper }}>
-      <LogoTextStyle>
-        <Typography variant='h5'>Gull</Typography>
-      </LogoTextStyle>
+      <Toolbar>
+        <LogoTextStyle variant='h5'>Gull</LogoTextStyle>
+      </Toolbar>
 
       <List>
         {["A", "B", "C", "D", "E", "F", "G"].map((text, index) => (

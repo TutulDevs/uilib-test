@@ -8,7 +8,7 @@ const WrapperStyle = styled("div")({
 
 const MainStyle = styled("main")(({ theme }) => ({
   marginLeft: drawerWidth,
-  padding: theme.spacing(1.25),
+  padding: "1rem",
 }));
 
 const Layout = ({ children }) => {

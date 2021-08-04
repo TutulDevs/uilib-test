@@ -16,11 +16,13 @@ const theme = createTheme({
     },
     background: {
       default: "#F1F3F4",
+      dark: "#949494",
+      light: "#B1B1B1",
     },
     purple: {
       main: "#663399",
       light: "#7D48B1",
-      lighter: "#F2F1FE",
+      lighter: "rgba(125, 72, 172, 0.25)",
     },
     blue: {
       main: "#3981F7",
@@ -41,7 +43,8 @@ const theme = createTheme({
   mixins: {
     toolbar: {
       minHeight: 80,
-      marginBottom: 30,
+      paddingTop: 30,
+      paddingBottom: 30,
     },
   },
 });
