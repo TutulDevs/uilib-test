@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div>
       <Head>
-        <title>About Page</title>
+        <title>About | UI Lib</title>
       </Head>
 
       <h1>About Page</h1>

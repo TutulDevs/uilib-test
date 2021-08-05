@@ -1,11 +1,5 @@
-import {
-  AppBar,
-  Badge,
-  Box,
-  IconButton,
-  styled,
-  Toolbar,
-} from "@material-ui/core";
+import { AppBar, Badge, Box, IconButton, Toolbar } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Avatar from "@material-ui/core/Avatar";
@@ -18,6 +12,7 @@ import SearchIcon from "@material-ui/icons/Search";
 const AppBarStyle = styled(AppBar)(({ theme }) => ({
   width: `calc(100% - ${drawerWidth}px)`,
   backgroundColor: theme.palette.background.default,
+  padding: 0,
 }));
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({

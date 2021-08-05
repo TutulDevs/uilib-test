@@ -1,17 +1,8 @@
-import Box from "@material-ui/core/Box";
-import Drawer from "@material-ui/core/Drawer";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import { AppBar, Toolbar, Drawer, Typography } from "@material-ui/core";
 import { drawerWidth } from "./Layout";
 import { makeStyles } from "@material-ui/styles";
 import { styled } from "@material-ui/core/styles";
+import NavItems from "../components/NavItems";
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
@@ -27,10 +18,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const AppBarStyle = styled(AppBar)(({ theme }) => ({
+  position: "static",
+  backgroundColor: theme.palette.purple.main,
+}));
+
+const ToolbarStyle = styled(Toolbar)(() => ({
+  paddingLeft: 0,
+  paddingRight: 0,
+}));
+
 const LogoTextStyle = styled(Typography)(({ theme }) => ({
-  minHeight: theme.spacing(8),
   display: "grid",
   placeItems: "center",
+  marginTop: theme.spacing(2.5),
 }));
 
 const SideBar = () => {
@@ -42,20 +43,14 @@ const SideBar = () => {
       variant='permanent'
       anchor='left'
       classes={{ paper: classes.drawerPaper }}>
-      <Toolbar>
-        <LogoTextStyle variant='h5'>Gull</LogoTextStyle>
-      </Toolbar>
+      <AppBarStyle elevation='0'>
+        <ToolbarStyle>
+          <LogoTextStyle variant='h5'>Gull</LogoTextStyle>
+        </ToolbarStyle>
+      </AppBarStyle>
 
-      <List>
-        {["A", "B", "C", "D", "E", "F", "G"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      {/* Nav List  */}
+      <NavItems />
     </Drawer>
   );
 };
