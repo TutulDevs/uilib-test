@@ -1,4 +1,4 @@
-import { Box, Card, Paper, Typography } from "@material-ui/core";
+import { Box, Paper, Typography } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 
 const HomeCard = ({ colorId, icon, title, amount }) => {
@@ -18,8 +18,26 @@ const HomeCard = ({ colorId, icon, title, amount }) => {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: theme.palette.green.lighter,
-    color: theme.palette.green.main,
+    backgroundColor:
+      colorId === "purple"
+        ? theme.palette.purple.lighter
+        : colorId === "blue"
+        ? theme.palette.blue.lighter
+        : colorId === "green"
+        ? theme.palette.green.lighter
+        : colorId === "orange"
+        ? theme.palette.orange.lighter
+        : theme.palette.purple.lighter,
+    color:
+      colorId === "purple"
+        ? theme.palette.purple.main
+        : colorId === "blue"
+        ? theme.palette.blue.main
+        : colorId === "green"
+        ? theme.palette.green.main
+        : colorId === "orange"
+        ? theme.palette.orange.main
+        : theme.palette.purple.main,
     minHeight: theme.spacing(10),
     padding: `${theme.spacing(0)} ${theme.spacing(1.75)}`,
     marginRight: theme.spacing(1.5),
@@ -32,10 +50,19 @@ const HomeCard = ({ colorId, icon, title, amount }) => {
   }));
 
   const AmountTextStyle = styled(Typography)(({ theme }) => ({
-    color: theme.palette.green.main,
+    color:
+      colorId === "purple"
+        ? theme.palette.purple.main
+        : colorId === "blue"
+        ? theme.palette.blue.main
+        : colorId === "green"
+        ? theme.palette.green.main
+        : colorId === "orange"
+        ? theme.palette.orange.main
+        : theme.palette.purple.main,
     fontSize: theme.spacing(3.75),
     fontWeight: 700,
-    marginTop: theme.spacing(0.5),
+    marginTop: theme.spacing(0.25),
   }));
 
   return (

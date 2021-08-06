@@ -9,25 +9,25 @@ import HomeCard from "./HomeCard";
 const cardItems = [
   {
     colorId: "purple",
-    icon: <FiUserPlus />,
+    icon: <FiUserPlus aria-label='New Leads' />,
     title: "New Leads",
     amount: "205",
   },
   {
     colorId: "blue",
-    icon: <RiHandCoinLine />,
+    icon: <RiHandCoinLine aria-label='Sales' />,
     title: "Sales",
     amount: "$4021",
   },
   {
     colorId: "green",
-    icon: <AiOutlinePieChart />,
+    icon: <AiOutlinePieChart aria-label='Orders' />,
     title: "Orders",
     amount: "80",
   },
   {
     colorId: "orange",
-    icon: <GiMoneyStack />,
+    icon: <GiMoneyStack aria-label='Expense' />,
     title: "Expense",
     amount: "$1200",
   },
@@ -55,6 +55,7 @@ const HomeCards = () => {
       {cardItems.map((el) => (
         <HomeCard
           key={el.colorId}
+          colorId={el.colorId}
           icon={el.icon}
           title={el.title}
           amount={el.amount}
