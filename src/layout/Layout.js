@@ -5,8 +5,12 @@ import { styled } from "@material-ui/core/styles";
 
 const MainStyle = styled("main")(({ theme }) => ({
   marginLeft: drawerWidth,
-  padding: "1rem",
+  padding: theme.spacing(3.75),
   minHeight: "100vh",
+}));
+
+const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
+  marginBottom: theme.spacing(3),
 }));
 
 const Layout = ({ children }) => {
@@ -17,7 +21,7 @@ const Layout = ({ children }) => {
       <SideBar />
 
       <MainStyle>
-        <Toolbar />
+        <ToolbarStyle />
         {children}
       </MainStyle>
     </>

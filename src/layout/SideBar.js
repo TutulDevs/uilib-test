@@ -23,9 +23,10 @@ const AppBarStyle = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.purple.main,
 }));
 
-const ToolbarStyle = styled(Toolbar)(() => ({
+const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   paddingLeft: 0,
   paddingRight: 0,
+  marginBottom: theme.spacing(1.5),
 }));
 
 const LogoTextStyle = styled(Typography)(({ theme }) => ({

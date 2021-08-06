@@ -36,6 +36,9 @@ const theme = createTheme({
       main: "#FFC620",
       lighter: "#FFF6E0",
     },
+    gray: {
+      main: "#43454D",
+    },
   },
   typography: {
     fontFamily: ["Nunito Sans", "sans-serif"].join(", "),

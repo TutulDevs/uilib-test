@@ -28,9 +28,9 @@ const NavItem = ({ path, icon, title }) => {
     cursor: "pointer",
     color: theme.paper,
     backgroundColor: pathname === path && theme.palette.purple.light,
-    minHeight: theme.mixins.toolbar.minHeight,
+    minHeight: theme.spacing(9.25),
     padding: theme.spacing(1),
-    borderRadius: theme.spacing(1),
+    borderRadius: theme.spacing(1 / 1.6),
     transition: "background 0.3s ease",
     "&:hover": {
       backgroundColor: theme.palette.purple.light,
