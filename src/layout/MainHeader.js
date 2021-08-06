@@ -1,13 +1,17 @@
-import { AppBar, Badge, Box, IconButton, Toolbar } from "@material-ui/core";
+import {
+  AppBar,
+  Badge,
+  Box,
+  IconButton,
+  Toolbar,
+  Input,
+  InputAdornment,
+  Avatar,
+} from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
-import Input from "@material-ui/core/Input";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Avatar from "@material-ui/core/Avatar";
 import { drawerWidth } from "./Layout";
-import MenuIcon from "@material-ui/icons/Menu";
-import OpenWithOutlinedIcon from "@material-ui/icons/OpenWithOutlined";
-import NotificationsOutlinedIcon from "@material-ui/icons/NotificationsOutlined";
-import SearchIcon from "@material-ui/icons/Search";
+import { AiOutlineMenu, AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
+import { FiMove } from "react-icons/fi";
 
 const AppBarStyle = styled(AppBar)(({ theme }) => ({
   width: `calc(100% - ${drawerWidth}px)`,
@@ -24,17 +28,27 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
 
 const BoxStyle = styled(Box)(({ theme }) => ({
   display: "grid",
-  gap: theme.spacing(2),
   gridAutoFlow: "column",
   alignItems: "center",
+  [theme.breakpoints.up("xs")]: {
+    gap: theme.spacing(1.5),
+  },
+  [theme.breakpoints.up("sm")]: {
+    gap: theme.spacing(3.75),
+  },
 }));
 
 const IconButtonStyle = styled(IconButton)(({ theme }) => ({
   color: theme.palette.purple.main,
-  transition: "background 0.5s ease",
+  transition: "0.3s ease-in",
   "&:hover": {
     backgroundColor: theme.palette.purple.lighter,
-    transition: "background 0.5s ease",
+  },
+  [theme.breakpoints.up("xs")]: {
+    fontSize: "1.25rem",
+  },
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "1.5rem",
   },
 }));
 
@@ -49,16 +63,32 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 const AvatarStyle = styled(Avatar)(({ theme }) => ({
-  borderRadius: theme.spacing(1.5),
-  width: theme.spacing(8),
-  height: theme.spacing(8),
+  borderRadius: theme.spacing(2),
+  transition: "0.3s ease-in",
+  [theme.breakpoints.up("xs")]: {
+    width: theme.spacing(6.5),
+    height: theme.spacing(6.5),
+  },
+  [theme.breakpoints.up("sm")]: {
+    width: theme.spacing(8),
+    height: theme.spacing(8),
+  },
+  "&:hover": {
+    boxShadow: "0 0 25px -10px rgb(0 0 0 / 74%)",
+  },
 }));
 
 const FormBoxStyle = styled(Box)(({ theme }) => ({
-  padding: `${theme.spacing(1.25)} ${theme.spacing(5)}`,
   backgroundColor: "white",
   color: theme.palette.background.light,
   borderRadius: theme.spacing(100),
+  [theme.breakpoints.up("xs")]: {
+    padding: `${theme.spacing(0.75)} ${theme.spacing(2)}`,
+    marginRight: "4px",
+  },
+  [theme.breakpoints.up("md")]: {
+    padding: `${theme.spacing(1.25)} ${theme.spacing(5)}`,
+  },
 }));
 
 const MainHeader = () => {
@@ -67,7 +97,7 @@ const MainHeader = () => {
       <ToolbarStyle>
         <BoxStyle>
           <IconButtonStyle aria-label='Menu Icon'>
-            <MenuIcon />
+            <AiOutlineMenu />
           </IconButtonStyle>
 
           <FormBoxStyle component='form' noValidate>
@@ -77,9 +107,10 @@ const MainHeader = () => {
               id='input-with-icon-adornment'
               fullWidth
               disableUnderline
+              aria-label='Search here'
               startAdornment={
                 <InputAdornment position='start'>
-                  <SearchIcon fontSize='small' />
+                  <AiOutlineSearch fontSize='small' />
                 </InputAdornment>
               }
             />
@@ -88,12 +119,12 @@ const MainHeader = () => {
 
         <BoxStyle>
           <IconButtonStyle aria-label='Open With Icon'>
-            <OpenWithOutlinedIcon />
+            <FiMove />
           </IconButtonStyle>
 
           <IconButtonStyle aria-label='Notification Icon'>
             <StyledBadge badgeContent={5}>
-              <NotificationsOutlinedIcon />
+              <AiOutlineBell />
             </StyledBadge>
           </IconButtonStyle>
 
