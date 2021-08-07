@@ -40,7 +40,7 @@ const NavItem = ({ path, icon, title }) => {
 
   return (
     <ListStyle>
-      <Link href={path}>
+      <Link href={path} passHref>
         <LinkStyle>
           <LinkIconStyle>{icon}</LinkIconStyle>
 
