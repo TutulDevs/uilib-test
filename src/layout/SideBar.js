@@ -1,5 +1,6 @@
-import { AppBar, Toolbar, Drawer, Typography } from "@material-ui/core";
+import { Toolbar, Drawer, Typography } from "@material-ui/core";
 import { drawerWidth } from "./Layout";
+import { headerHeight } from "./Layout";
 import { makeStyles } from "@material-ui/styles";
 import { styled } from "@material-ui/core/styles";
 import NavItems from "../components/NavItems";
@@ -18,21 +19,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppBarStyle = styled(AppBar)(({ theme }) => ({
-  position: "static",
-  backgroundColor: theme.palette.purple.main,
-}));
-
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
-  paddingLeft: 0,
-  paddingRight: 0,
-  marginBottom: theme.spacing(1.5),
-}));
-
-const LogoTextStyle = styled(Typography)(({ theme }) => ({
   display: "grid",
   placeItems: "center",
-  marginTop: theme.spacing(2.5),
+  [theme.breakpoints.up("xs")]: {
+    minHeight: headerHeight,
+    padding: `${theme.spacing(2)} ${theme.spacing(0)}`,
+    marginBottom: theme.spacing(0),
+  },
+  [theme.breakpoints.up("sm")]: {
+    minHeight: theme.mixins.toolbar.minHeight,
+    padding: `${theme.spacing(4.25)} ${theme.spacing(0)}`,
+    marginBottom: theme.spacing(1.5),
+  },
 }));
 
 const SideBar = () => {
@@ -44,11 +43,9 @@ const SideBar = () => {
       variant='permanent'
       anchor='left'
       classes={{ paper: classes.drawerPaper }}>
-      <AppBarStyle elevation='0'>
-        <ToolbarStyle>
-          <LogoTextStyle variant='h5'>Gull</LogoTextStyle>
-        </ToolbarStyle>
-      </AppBarStyle>
+      <ToolbarStyle>
+        <Typography variant='h4'>Gull</Typography>
+      </ToolbarStyle>
 
       {/* Nav List  */}
       <NavItems />

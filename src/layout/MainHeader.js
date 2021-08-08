@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
 import { drawerWidth } from "./Layout";
+import { headerHeight } from "./Layout";
 import { AiOutlineMenu, AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
 import { FiMove } from "react-icons/fi";
 
@@ -24,6 +25,14 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
+  [theme.breakpoints.up("xs")]: {
+    minHeight: headerHeight,
+    padding: theme.spacing(2),
+  },
+  [theme.breakpoints.up("sm")]: {
+    minHeight: theme.mixins.toolbar.minHeight,
+    padding: `${theme.spacing(3.75)} ${theme.spacing(2)}`,
+  },
 }));
 
 const BoxStyle = styled(Box)(({ theme }) => ({

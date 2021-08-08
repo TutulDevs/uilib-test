@@ -10,7 +10,13 @@ const MainStyle = styled("main")(({ theme }) => ({
 }));
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
-  marginBottom: theme.spacing(3),
+  [theme.breakpoints.up("xs")]: {
+    minHeight: headerHeight,
+  },
+  [theme.breakpoints.up("sm")]: {
+    minHeight: theme.mixins.toolbar.minHeight,
+    marginBottom: theme.spacing(1.5),
+  },
 }));
 
 const Layout = ({ children }) => {
@@ -31,3 +37,4 @@ const Layout = ({ children }) => {
 export default Layout;
 
 export const drawerWidth = 120;
+export const headerHeight = 64;

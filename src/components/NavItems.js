@@ -74,8 +74,9 @@ const itemsArray = [
   },
 ];
 
-const ListStyle = styled(List)(() => ({
+const ListStyle = styled(List)(({ theme }) => ({
   padding: 0,
+  marginTop: theme.spacing(3.75),
 }));
 
 const NavItems = () => {
