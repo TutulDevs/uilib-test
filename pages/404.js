@@ -35,7 +35,7 @@ const Custom404 = () => {
   return (
     <>
       <Head>
-        <title>404 | UI Lib</title>
+        <title>404 | Gull</title>
       </Head>
 
       <ContainerStyle>

@@ -5,7 +5,7 @@ const Table = () => {
   return (
     <>
       <Head>
-        <title>List | UI Lib</title>
+        <title>List | Gull</title>
       </Head>
 
       <Typography variant='h4' component='h1' mt={2}>
