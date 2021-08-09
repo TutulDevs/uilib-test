@@ -77,7 +77,7 @@ const itemsArray = [
 
 const ListStyle = styled(List)(({ theme }) => ({
   padding: `0 ${theme.spacing(1)}`,
-  marginTop: theme.spacing(2.75),
+  marginTop: theme.spacing(3.5),
 }));
 
 const LogoToolbarStyle = styled(Toolbar)(({ theme }) => ({
@@ -86,9 +86,6 @@ const LogoToolbarStyle = styled(Toolbar)(({ theme }) => ({
   display: "grid",
   placeItems: "center",
   color: theme.palette.common.white,
-  [theme.breakpoints.down("sm")]: {
-    marginTop: theme.spacing(1.5),
-  },
   [theme.breakpoints.up("xs")]: {
     padding: "0 !important",
   },

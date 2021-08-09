@@ -1,38 +1,33 @@
 import {
-  AppBar,
   Badge,
   Box,
   IconButton,
+  AppBar,
   Toolbar,
   Input,
   InputAdornment,
   Avatar,
 } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
+
 import { drawerWidth } from "./Layout";
-import { headerHeight } from "./Layout";
+
 import { AiOutlineMenu, AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
 import { FiMove } from "react-icons/fi";
 
 const AppBarStyle = styled(AppBar)(({ theme }) => ({
-  width: `calc(100% - ${drawerWidth}px)`,
   backgroundColor: theme.palette.background.default,
-  padding: 0,
+  [theme.breakpoints.up("sm")]: {
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
+  },
 }));
 
 const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
-  color: "black",
+  color: theme.palette.common.black,
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  [theme.breakpoints.up("xs")]: {
-    minHeight: headerHeight,
-    padding: theme.spacing(2),
-  },
-  [theme.breakpoints.up("sm")]: {
-    minHeight: theme.mixins.toolbar.minHeight,
-    padding: `${theme.spacing(3.75)} ${theme.spacing(2)}`,
-  },
 }));
 
 const BoxStyle = styled(Box)(({ theme }) => ({
@@ -67,7 +62,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     right: 0,
     padding: "0 5px",
     backgroundColor: theme.palette.purple.main,
-    color: "white",
+    color: theme.palette.common.white,
+    [theme.breakpoints.down("sm")]: {
+      fontSize: theme.spacing(1.5),
+    },
   },
 }));
 
@@ -88,24 +86,34 @@ const AvatarStyle = styled(Avatar)(({ theme }) => ({
 }));
 
 const FormBoxStyle = styled(Box)(({ theme }) => ({
-  backgroundColor: "white",
+  backgroundColor: theme.palette.common.white,
   color: theme.palette.background.light,
-  borderRadius: theme.spacing(100),
+  borderRadius: theme.spacing(2),
   [theme.breakpoints.up("xs")]: {
     padding: `${theme.spacing(0.75)} ${theme.spacing(2)}`,
-    marginRight: "4px",
+    marginRight: theme.spacing(0.5),
   },
   [theme.breakpoints.up("md")]: {
     padding: `${theme.spacing(1.25)} ${theme.spacing(5)}`,
   },
 }));
 
-const MainHeader = () => {
+const MainHeader = ({ onClick, edge }) => {
   return (
-    <AppBarStyle elevation={0}>
+    <AppBarStyle position='fixed' elevation={0}>
       <ToolbarStyle>
         <BoxStyle>
-          <IconButtonStyle aria-label='Menu Icon'>
+          <IconButtonStyle
+            onClick={onClick}
+            edge={edge}
+            sx={{ display: { xs: "inherit", sm: "none" } }}
+            aria-label='Menu Icon'>
+            <AiOutlineMenu />
+          </IconButtonStyle>
+
+          <IconButtonStyle
+            sx={{ display: { xs: "none", sm: "inherit" } }}
+            aria-label='Menu Icon'>
             <AiOutlineMenu />
           </IconButtonStyle>
 
