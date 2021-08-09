@@ -1,6 +1,7 @@
-import { List } from "@material-ui/core";
+import { Toolbar, List, Typography } from "@material-ui/core";
 import { styled } from "@material-ui/core/styles";
-import NavItem from "./NavItem";
+
+import NavItem from "../components/NavItem";
 
 import { BiLineChart, BiUser } from "react-icons/bi";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
@@ -75,18 +76,39 @@ const itemsArray = [
 ];
 
 const ListStyle = styled(List)(({ theme }) => ({
-  padding: 0,
-  marginTop: theme.spacing(3.75),
+  padding: `0 ${theme.spacing(1)}`,
+  marginTop: theme.spacing(2.75),
 }));
 
-const NavItems = () => {
+const LogoToolbarStyle = styled(Toolbar)(({ theme }) => ({
+  marginTop: theme.spacing(1),
+  padding: 0,
+  display: "grid",
+  placeItems: "center",
+  color: theme.palette.common.white,
+  [theme.breakpoints.down("sm")]: {
+    marginTop: theme.spacing(1.5),
+  },
+  [theme.breakpoints.up("xs")]: {
+    padding: "0 !important",
+  },
+}));
+
+const DrawerContent = () => {
   return (
-    <ListStyle>
-      {itemsArray.map((el) => (
-        <NavItem key={el.id} icon={el.icon} title={el.title} path={el.path} />
-      ))}
-    </ListStyle>
+    <>
+      <LogoToolbarStyle>
+        <Typography variant='h4'>Gull</Typography>
+      </LogoToolbarStyle>
+
+      {/* Nav List  */}
+      <ListStyle>
+        {itemsArray.map((el) => (
+          <NavItem key={el.id} icon={el.icon} title={el.title} path={el.path} />
+        ))}
+      </ListStyle>
+    </>
   );
 };
 
-export default NavItems;
+export default DrawerContent;
