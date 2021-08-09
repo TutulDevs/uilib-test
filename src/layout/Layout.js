@@ -128,21 +128,3 @@ const Layout = (props) => {
 };
 
 export default Layout;
-
-//export const drawerWidth = 120;
-export const headerHeight = 64;
-
-/*
-
- <>
-      <MainHeader />
-
-      <SideBar />
-
-      <MainStyle>
-        <ToolbarStyle />
-        {children}
-      </MainStyle>
-    </>
-
-*/
