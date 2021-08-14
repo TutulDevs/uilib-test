@@ -3,7 +3,9 @@ import { styled } from "@material-ui/styles";
 
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsFilter } from "react-icons/bs";
+
 import CustomIconButton from "../ui/IconButton";
+import UserListTable from "./UserListTable";
 
 const ContainerBoxStyle = styled(Box)(() => ({
   display: "flex",
@@ -27,7 +29,6 @@ const UserList = () => {
   return (
     <Card
       variant='outlined'
-      elevation={3}
       sx={{
         py: 2.5,
         borderRadius: 1.5,
@@ -59,6 +60,8 @@ const UserList = () => {
       </ContainerBoxStyle>
 
       {/* Actual list of items */}
+
+      <UserListTable />
     </Card>
   );
 };
