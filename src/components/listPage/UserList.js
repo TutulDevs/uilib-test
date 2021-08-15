@@ -30,34 +30,38 @@ const UserList = () => {
     <Card
       variant='outlined'
       sx={{
+        width: "100%",
         py: 2.5,
         borderRadius: 1.5,
         boxShadow: "0px 5px 15px -5px rgba(0,0,0,0.25)",
       }}>
       {/* Form & Button */}
-      <ContainerBoxStyle
-        sx={{
-          px: 2.5,
-        }}>
-        <TextFieldStyle
-          type='search'
-          placeholder='Search user...'
-          aria-label='Search here'
-          id='outlined-start-adornment'
-          variant='outlined'
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position='start'>
-                <AiOutlineSearch />
-              </InputAdornment>
-            ),
-          }}
-        />
+      <Box component='div'>
+        <ContainerBoxStyle
+          component='div'
+          sx={{
+            px: 2.5,
+          }}>
+          <TextFieldStyle
+            type='search'
+            placeholder='Search user...'
+            aria-label='Search here'
+            id='outlined-start-adornment'
+            variant='outlined'
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position='start'>
+                  <AiOutlineSearch />
+                </InputAdornment>
+              ),
+            }}
+          />
 
-        <CustomIconButton label='filter list'>
-          <BsFilter />
-        </CustomIconButton>
-      </ContainerBoxStyle>
+          <CustomIconButton label='filter list'>
+            <BsFilter />
+          </CustomIconButton>
+        </ContainerBoxStyle>
+      </Box>
 
       {/* Actual list of items */}
 

@@ -9,12 +9,34 @@ import {
   Checkbox,
   TableSortLabel,
   Box,
+  TableBody,
 } from "@material-ui/core";
 import { visuallyHidden } from "@material-ui/utils";
 
+import { BlockOutlined, CheckOutlined } from "@material-ui/icons";
+
 const users = [
-  { name: "John", company: "ABC Ltd", city: "Xanadu", status: "XXX" },
-  { name: "Mark", company: "XYZ Ltd", city: "Malibu", status: "YYY" },
+  {
+    id: "user1",
+    name: "John",
+    company: "ABC Ltd",
+    city: "Xanadu",
+    status: Math.floor(Math.random() * 2),
+  },
+  {
+    id: "user2",
+    name: "Mark",
+    company: "XYZ Ltd",
+    city: "Malibu",
+    status: Math.floor(Math.random() * 2),
+  },
+  {
+    id: "user3",
+    name: "Godhuli",
+    company: "Gan Ltd",
+    city: "Rang",
+    status: Math.floor(Math.random() * 2),
+  },
 ];
 
 // Table Header
@@ -50,7 +72,6 @@ const CustomTableHeader = (props) => {
           <TableCell
             key={el}
             sx={{ fontWeight: 600, fontSize: 20 }}
-            align='center'
             sortDirection={orderBy === el ? order : false}>
             <TableSortLabel
               active={orderBy === el}
@@ -101,27 +122,52 @@ const UserListTable = () => {
   };
 
   return (
-    <Paper sx={{ width: "100%", my: 2 }}>
-      {/* On top of the header will be included later */}
+    <Table aria-labelledby='User List Table'>
+      {/* Table Header */}
+      <CustomTableHeader
+        order={order}
+        orderBy={orderBy}
+        numSelected={selectedItems.length}
+        onSelectAllOnClick={handleSelectAllClick}
+        onRequestSort={handleRequestSort}
+        rowCount={userList.length}
+      />
 
-      {/* Main table */}
+      {/* Table Body */}
+      <TableBody>
+        {/* add later -> onClick, aria-checked, selected */}
+        {userList.map((el) => (
+          <TableRow key={el.id} hover role='checkbox' tabIndex={-1}>
+            <TableCell padding='checkbox'>
+              {/* add -> checked, inputProps */}
+              <Checkbox color='purple' />
+            </TableCell>
+            {/* add -> id */}
+            <TableCell component='th' scope='row'>
+              {el.name}
+            </TableCell>
 
-      <TableContainer>
-        <Table aria-labelledby='User List Table'>
-          {/* Table Header */}
-          <CustomTableHeader
-            order={order}
-            orderBy={orderBy}
-            numSelected={selectedItems.length}
-            onSelectAllOnClick={handleSelectAllClick}
-            onRequestSort={handleRequestSort}
-            rowCount={userList.length}
-          />
-
-          {/* Table Body */}
-        </Table>
-      </TableContainer>
-    </Paper>
+            <TableCell>{el.company}</TableCell>
+            <TableCell>{el.city} </TableCell>
+            <TableCell>
+              {el.status === 1 ? (
+                <CheckOutlined
+                  aria-label='user active'
+                  fontSize='small'
+                  color='secondary'
+                />
+              ) : (
+                <BlockOutlined
+                  aria-label='user banned'
+                  fontSize='small'
+                  color='error'
+                />
+              )}
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 };
 
