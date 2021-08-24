@@ -5,7 +5,6 @@ import { styled } from "@material-ui/styles";
 import { AiOutlinePlus } from "react-icons/ai";
 
 import CustomButton from "../src/components/ui/Button";
-import UserList from "../src/components/listPage/UserList";
 
 const ContainerBoxStyle = styled(Box)(() => ({
   display: "flex",
@@ -21,7 +20,7 @@ const Table = () => {
       </Head>
 
       <ContainerBoxStyle sx={{ mb: 5 }}>
-        <Typography variant='h4' component='h1'>
+        <Typography variant="h4" component="h1">
           Users
         </Typography>
 
@@ -32,7 +31,11 @@ const Table = () => {
       </ContainerBoxStyle>
 
       {/* User List Content */}
-      <UserList />
+      <ContainerBoxStyle>
+        <Typography variant="h6" component="h3">
+          A list can be added here.
+        </Typography>
+      </ContainerBoxStyle>
     </>
   );
 };
